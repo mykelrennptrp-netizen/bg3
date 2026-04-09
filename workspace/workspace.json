@@ -1,0 +1,95 @@
+{
+  "workspace": {
+    "name": "BG3 Antigravity Theorycrafting Lab",
+    "version": "1.0.0",
+    "engine": "antigravity-ide",
+    "platform": "google-app",
+    "description": "AI-grounded workspace for Baldur's Gate 3 build creation through theorycrafting, min-maxing, and optimization. Grounded exclusively to the BG3BUILD data hub with secondary web reference from bg3.wiki.",
+    "created": "2026-04-09",
+    "patch_baseline": "Patch_8_HOTFIX36",
+    "standard": "OCTA_MATRIX_V13.2_FORENSIC"
+  },
+  "grounding": {
+    "primary_source": {
+      "type": "data_hub",
+      "label": "BG3BUILD Data Hub",
+      "path": "BG3BUILD/",
+      "description": "Local forensic data repository containing all BG3 game mechanics, classes, equipment, spells, and optimization matrices.",
+      "trust_level": "authoritative",
+      "priority": 1,
+      "index": {
+        "biology": "BG3BUILD/Biology/",
+        "disciplines": "BG3BUILD/Disciplines/",
+        "rules_engine": "BG3BUILD/Rules_Engine/",
+        "library": "BG3BUILD/Library/",
+        "logic": "BG3BUILD/Logic/",
+        "logistics": "BG3BUILD/Logistics/"
+      },
+      "manifest": "BG3BUILD/Disciplines/vanguard_manifest.json"
+    },
+    "secondary_source": {
+      "type": "web",
+      "label": "BG3 Wiki",
+      "url": "https://bg3.wiki/",
+      "description": "Community-maintained Baldur's Gate 3 wiki for supplementary data, edge-case verification, and item/quest lookups not fully covered by the data hub.",
+      "trust_level": "supplementary",
+      "priority": 2,
+      "usage_policy": "Use only when data hub lacks coverage or for cross-verification. Data hub always takes precedence on conflicts."
+    }
+  },
+  "project": {
+    "name": "BG3 Build Optimizer",
+    "objectives": [
+      "Create character builds via theorycrafting",
+      "Min-max attribute allocation and feat selection",
+      "Optimize multiclass combinations and synergies",
+      "Evaluate equipment loadouts for build archetypes",
+      "Analyze spell selections and resource economy"
+    ],
+    "capabilities": [
+      "build_creation",
+      "build_comparison",
+      "damage_calculation",
+      "synergy_analysis",
+      "equipment_optimization",
+      "multiclass_planning",
+      "level_progression_mapping"
+    ],
+    "output_formats": [
+      "build_card",
+      "progression_table",
+      "equipment_loadout",
+      "damage_breakdown",
+      "comparison_matrix"
+    ]
+  },
+  "data_schema": {
+    "build_template": "workspace/templates/build_template.json",
+    "tier_system": ["GOD_TIER", "S_TIER", "A_TIER", "B_TIER", "C_TIER", "D_TIER"],
+    "difficulty_modes": ["Explorer", "Balanced", "Tactician", "Honour"],
+    "level_cap": 12,
+    "ability_scores": ["STR", "DEX", "CON", "INT", "WIS", "CHA"],
+    "classes": [
+      "Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk",
+      "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard"
+    ]
+  },
+  "agent_instructions": {
+    "system_prompt_file": "workspace/system_instructions.md",
+    "grounding_rules": [
+      "ALWAYS consult the BG3BUILD data hub as the primary source of truth.",
+      "NEVER fabricate game mechanics, stats, or item properties not present in the data hub or bg3.wiki.",
+      "When data hub and wiki conflict, prefer data hub values.",
+      "Use bg3.wiki ONLY for supplementary lookups when data hub lacks specific information.",
+      "All optimization ratings must use the established tier system (GOD through D).",
+      "Honour Mode rules override Standard/Tactician rules when building for Honour Mode.",
+      "Multiclass spell slot rounding follows BG3 rules (round DOWN per class before summing).",
+      "Extra Attack stacking depends on difficulty mode — always clarify the mode."
+    ]
+  },
+  "workspace_layout": {
+    "templates": "workspace/templates/",
+    "builds": "workspace/builds/",
+    "system_instructions": "workspace/system_instructions.md"
+  }
+}
