@@ -1,0 +1,288 @@
+{
+  "manifest_metadata": {
+    "version": "v13.2",
+    "patch_baseline": "8_HOTFIX36",
+    "standard": "OCTA_MATRIX_V13.2_FORENSIC",
+    "last_satiation": "2026-04-08",
+    "saturation_status": "100%_BIT_PERFECT",
+    "total_unique_entries": 633
+  },
+  "global_logic": {
+    "multiclass_rounding": {
+      "full_caster": 1.0,
+      "half_caster": 0.5,
+      "third_caster": 0.33,
+      "logic": "FLOOR_INDIVIDUAL_SUM_TOTAL"
+    },
+    "honour_mode_constraints": {
+      "extra_attack_stacking": false,
+      "quicken_leveled_spell_limit": true,
+      "haste_extra_action_restriction": "NO_EXTRA_ATTACK"
+    }
+  },
+  "disciplines": {
+    "BARBARIAN": {
+      "id": "CLASS_BARBARIAN",
+      "stats": { "primary": "STR", "secondary": "CON", "tertiary": "DEX" },
+      "p8_features": ["GIANT_ASCENSION_SUBCLASS", "WILDHEART_OFFHAND_FIX"],
+      "progression": {
+        "1": ["RAGE", "UNARMORED_DEF"],
+        "2": ["RECKLESS_ATTACK", "DANGER_SENSE"],
+        "5": ["EXTRA_ATTACK", "FAST_MOVEMENT"],
+        "11": ["RELENTLESS_RAGE"]
+      },
+      "subclasses": {
+        "BERSERKER": { "logic": "THROW_PRIORITY" },
+        "WILD_HEART": { "logic": "BEAR_TIGER_SATIATION" },
+        "GIANT": { "p8": true, "logic": " battlefield_control" }
+      }
+    },
+    "BARD": {
+      "id": "CLASS_BARD",
+      "stats": { "primary": "CHA", "secondary": "DEX", "tertiary": "CON" },
+      "p8_features": ["GLAMOUR_SUBCLASS", "SPIRITS_SUBCLASS"],
+      "progression": {
+        "1": ["BARDIC_INSPIRATION"],
+        "2": ["JACK_OF_ALL_TRADES", "SONG_OF_REST"],
+        "3": ["EXPERTISE_1"],
+        "5": ["FONT_OF_INSPIRATION"],
+        "10": ["MAGICAL_SECRETS", "EXPERTISE_2"]
+      },
+      "subclasses": {
+        "LORE": { "logic": "CONTROL_MAGIC" },
+        "SWORDS": { "logic": "MARTIAL_GISH" },
+        "GLAMOUR": { "p8": true, "logic": "TACTICAL_CONTROL" }
+      }
+    },
+    "CLERIC": {
+      "id": "CLASS_CLERIC",
+      "stats": { "primary": "WIS", "secondary": "CON" },
+      "p8_features": ["DEATH_DOMAIN", "POTENT_SPELLCASTING_FIX"],
+      "progression": {
+        "1": ["DOMAIN_SELECT"],
+        "2": ["CHANNEL_DIVINITY"],
+        "10": ["DIVINE_INTERVENTION"]
+      },
+      "subclasses": {
+        "LIFE": { "logic": "HEAVY_HEALER" },
+        "LIGHT": { "logic": "RADIANT_BLASTER" },
+        "TEMPEST": { "logic": "LIGHTNING_NUKE" },
+        "DEATH": { "p8": true, "logic": "NECROTIC_REAPER" }
+      }
+    },
+    "DRUID": {
+      "id": "CLASS_DRUID",
+      "stats": { "primary": "WIS", "secondary": "CON" },
+      "p8_features": ["STARS_CIRCLE", "MYRMIDON_PROF_MERGE", "GRASPING_VINE_BA"],
+      "progression": {
+        "2": ["WILD_SHAPE", "CIRCLE_SELECT"],
+        "5": ["WILD_STRIKE"],
+        "10": ["IMPROVED_WILD_STRIKE"]
+      },
+      "subclasses": {
+        "MOON": { "logic": "WS_TANK" },
+        "SPORES": { "logic": "TEMPHP_GISH" },
+        "STARS": { "p8": true, "logic": "CELESTIAL_UTILITY" }
+      }
+    },
+    "FIGHTER": {
+      "id": "CLASS_FIGHTER",
+      "stats": { "primary": ["STR", "DEX"], "secondary": "CON" },
+      "p8_features": ["ARCANE_ARCHER_SUBCLASS", "WAR_MAGIC_ORDER_FIX"],
+      "progression": {
+        "1": ["FIGHTING_STYLE", "SECOND_WIND"],
+        "2": ["ACTION_SURGE"],
+        "5": ["EXTRA_ATTACK"],
+        "11": ["IMPROVED_EXTRA_ATTACK"]
+      },
+      "subclasses": {
+        "BATTLE_MASTER": { "logic": "MANEUVER_CONTROL" },
+        "ARCANE_ARCHER": { "p8": true, "logic": "MAGICAL_SNIPER" },
+        "ELD_KNIGHT": { "logic": "INT_GISH" }
+      }
+    },
+    "MONK": {
+      "id": "CLASS_MONK",
+      "stats": { "primary": "DEX", "secondary": "WIS" },
+      "p8_features": ["DRUNKEN_MASTER_SUBCLASS", "SHADOW_STRIKE_FIX"],
+      "progression": {
+        "1": ["MARTIAL_ARTS", "UNARMORED_DEF"],
+        "2": ["KI_POINTS", "UNARMORED_MOVE"],
+        "5": ["EXTRA_ATTACK", "STUNNING_STRIKE"]
+      },
+      "subclasses": {
+        "OPEN_HAND": { "logic": "DPR_KING" },
+        "DRUNKEN_MASTER": { "p8": true, "logic": "MOBILE_TANK" },
+        "SHADOW": { "logic": "ASSASSIN_UTILITY" }
+      }
+    },
+    "PALADIN": {
+      "id": "CLASS_PALADIN",
+      "stats": { "primary": "STR", "secondary": "CHA" },
+      "p8_features": ["CROWN_OATH"],
+      "progression": {
+        "2": ["DIVINE_SMITE", "FIGHTING_STYLE"],
+        "6": ["AURA_OF_PROTECTION"],
+        "11": ["IMPROVED_DIVINE_SMITE"]
+      },
+      "subclasses": {
+        "VENGEANCE": { "logic": "INSANE_ACCURACY" },
+        "OATHBREAKER": { "logic": "AURA_HATE_BURST" },
+        "CROWN": { "p8": true, "logic": "ZONE_DEFENSE" }
+      }
+    },
+    "RANGER": {
+      "id": "CLASS_RANGER",
+      "stats": { "primary": "DEX", "secondary": "WIS" },
+      "p8_features": ["SWARMKEEPER_SUBCLASS", "DRAKEWARDEN_SUBCLASS", "COMPANION_BA_DASH"],
+      "progression": {
+        "1": ["FAVORED_ENEMY", "NATURAL_EXPLORER"],
+        "2": ["FIGHTING_STYLE"],
+        "3": ["COMPANION_SCALING"]
+      },
+      "subclasses": {
+        "GLOOM_STALKER": { "logic": "ALPHA_STRIKE" },
+        "BEAST_MASTER": { "logic": "ACTION_ECONOMY_PET" },
+        "SWARMKEEPER": { "p8": true, "logic": "PUSH_CONTROL" }
+      }
+    },
+    "ROGUE": {
+      "id": "CLASS_ROGUE",
+      "stats": { "primary": "DEX", "secondary": ["CHA", "INT"] },
+      "p8_features": ["SWASHBUCKLER_SUBCLASS", "SHADOW_BLADE_NO_CONC"],
+      "progression": {
+        "1": ["SNEAK_ATTACK", "EXPERTISE_1"],
+        "2": ["CUNNING_ACTION"],
+        "11": ["RELIABLE_TALENT"]
+      },
+      "subclasses": {
+        "THIEF": { "logic": "BONUS_ACTION_GOD" },
+        "ASSASSIN": { "logic": "AMBUSH_CRIT" },
+        "SWASHBUCKLER": { "p8": true, "logic": "SOLO_SNEAK" }
+      }
+    },
+    "SORCERER": {
+      "id": "CLASS_SORCERER",
+      "stats": { "primary": "CHA", "secondary": "CON" },
+      "p8_features": ["SHADOW_MAGIC_SUBCLASS", "QUICKENED_MODE_LIMIT"],
+      "progression": {
+        "2": ["SORCERY_POINTS", "METAMAGIC_1"],
+        "3": ["METAMAGIC_2"],
+        "10": ["METAMAGIC_3"]
+      },
+      "subclasses": {
+        "DRACONIC": { "logic": "ELEM_BLASTER" },
+        "STORM": { "logic": "MOBILITY_CONTROL" },
+        "SHADOW": { "p8": true, "logic": "HOUND_CC" }
+      }
+    },
+    "WARLOCK": {
+      "id": "CLASS_WARLOCK",
+      "stats": { "primary": "CHA", "secondary": "CON" },
+      "p8_features": ["HEXBLADE_SUBCLASS", "BLADE_PACT_EXTRA_STACK"],
+      "progression": {
+        "1": ["PATRON_SELECT"],
+        "2": ["INVOCATIONS_1"],
+        "3": ["PACT_BOON"],
+        "12": ["LIFEDRINKER_INVOCATION"]
+      },
+      "subclasses": {
+        "FIEND": { "logic": "BLAST_TANK" },
+        "HEXBLADE": { "p8": true, "logic": "SAD_MELEE_GISH" },
+        "GOO": { "logic": "CRIT_FEAR_CONTROL" }
+      }
+    },
+    "WIZARD": {
+      "id": "CLASS_WIZARD",
+      "stats": { "primary": "INT", "secondary": "CON" },
+      "p8_features": ["BLADESINGING_SUBCLASS", "WALL_OF_ICE_P8_FIX"],
+      "progression": {
+        "1": ["ARCANE_RECOVERY", "SCRIBING"],
+        "2": ["SCHOOL_SELECT"],
+        "10": ["SCHOOL_SPIKE"]
+      },
+      "subclasses": {
+        "ABJURATION": { "logic": "REDUCTION_GOD" },
+        "EVOCATION": { "logic": "SCULPT_NUKE" },
+        "BLADESINGING": { "p8": true, "logic": "INT_TO_AC_GISH" }
+      }
+    }
+  },
+  "synergy_engine": {
+    "BARDADIN": {
+      "classes": ["BARD_SWORDS", "PALADIN_VENGEANCE"],
+      "tiers": {
+        "LV12": "S_TIER_NOVA",
+        "LV8": "A_TIER_MIDGAME"
+      },
+      "optimization": ["Savage_Attacker_Feat", "Hold_Monster_Scroll", "Vow_on_Self"]
+    },
+    "SORLOCK": {
+      "classes": ["SORCERER_DRACONIC", "WARLOCK_FIEND"],
+      "tiers": {
+        "LV12": "GOD_TIER_DPR"
+      },
+      "optimization": ["Potent_Robe", "Haste_Twinned", "Quickened_Blast"]
+    },
+    "THROW_ZERKER": {
+      "classes": ["BARBARIAN_BERSERKER", "FIGHTER_EK", "ROGUE_THIEF"],
+      "tiers": {
+        "LV12": "GOD_TIER_SOLO"
+      },
+      "optimization": ["Tavern_Brawler", "Returning_Pike", "STR_Elixir"]
+    }
+  },
+  "systemic_modifiers": {
+    "RACES": {
+      "GOD_TIER": ["GITHYANKI"],
+      "S_TIER": ["WOOD_ELF", "HALF_ORC", "DUERGAR"],
+      "A_TIER": ["DEEP_GNOME", "HIGH_ELF", "DROW"],
+      "traits": {
+        "ASTRAL_KNOWLEDGE": "OMNI_PROFICIENCY_ON_REST",
+        "RELENTLESS_ENDURE": "DROP_TO_1_HP_NO_DEATH",
+        "GNOME_CUNNING": "ADV_ON_MENTAL_SAVES"
+      }
+    },
+    "FEATS": {
+      "GOD_TIER": ["TAVERN_BRAWLER", "ALERT"],
+      "S_TIER": ["GWM", "SHARPSHOOTER", "SAVAGE_ATTACKER", "WAR_CASTER", "RESILIENT_CON"],
+      "triggers": {
+        "GWM_ALL_IN": {"hit_penalty": -5, "dmg_bonus": 10},
+        "TAVERN_BRAWLER_P8": {"str_multi": 2, "hit_mod": "STR", "dmg_mod": "STR"}
+      }
+    },
+    "ORIGINS": {
+      "ASTARION": {"happy_buff": 1, "logic": "BURST_DPR"},
+      "DARK_URGE": {"mantle_invis": true, "logic": "SOLO_ASSASSIN"},
+      "KARLACH": {"soul_coin_fire": "1d4", "logic": "MELEE_DPR"}
+    },
+    "CONSUMABLES": {
+      "STR_CLOUD": {"override": 27, "impact": "GOD_TIER", "source": "EQUIPMENT_SYNERGY"},
+      "BLOODLUST": {"action_on_kill": 1, "impact": "GOD_TIER", "source": "EQUIPMENT_SYNERGY"},
+      "SPEED_POTION": {"haste_turns": 3, "lethargy": true, "impact": "S_TIER"},
+      "BATTLEMAGE": {"acuity": 3, "impact": "S_TIER"}
+    },
+    "PERMANENT_BONUSES": {
+      "MIRROR_OF_LOSS": {"stat_delta": 2, "max_cap": 24},
+      "ETHEL_HAIR": {"stat_delta": 1, "max_cap": 21},
+      "VIGOUR_POTION": {"stat_delta": 2, "stat": "STR"}
+    }
+  },
+  "rules_engine": {
+    "DICE": { "natural_20": "AUTO_SUCCESS", "natural_1": "AUTO_FAIL", "crit_multi": 2 },
+    "ECONOMY": { "action": 1, "bonus_action": 1, "reaction": 1, "movement": 9.0 },
+    "REST_RECOVERY": { "SHORT": ["KI", "PACT", "ASH"], "LONG": ["ALL_SLOTS", "HP"], "logic": "INSPIRATION_REST_SYNC" },
+    "FORENSIC_NODES": {
+      "WEAPON_ACTIONS": "Rules_Engine/Weapon_actions.md",
+      "MULTICLASSING": "Logic/Multiclassing.md",
+      "INSPIRATION": "Logistics/Inspiration.md",
+      "SYNERGY": "Library/EQUIPMENT_SYNERGY.md",
+      "HONOUR_MODE": "Rules_Engine/Honour_Mode.md",
+      "VAULT_WEAPONS": "Library/WEAPON_VAULT.md",
+      "VAULT_ARMOR": "Library/ARMOR_VAULT.md",
+      "VAULT_ACCESSORIES": "Library/ACCESSORY_VAULT.md",
+      "VAULT_JEWELRY": "Library/JEWELRY_VAULT.md",
+      "VAULT_ALCHEMY": "Library/ALCHEMY_VAULT.md"
+    }
+  }
+}
